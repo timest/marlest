@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load time_util %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9 col-md-9">
+            <div class="info-container">
+                <div class="info-title">
+                    <div class="info-title-menu dropdown">
+                        <a href="javascript:;" data-toggle="dropdown" class="info-title-btn"><i class="icon-gear"></i></a>
+                        <ul class="dropdown-menu" id="info-setting-menu">
+                            <li><a href="javascript:;" id="liveSwitch">实时更新<span class="info-title-power-group"><em class="info-title-power"></em></span></a></li>
+                            <li><a href="javascript:;" id="desktopSwitch" class="power-off">桌面通知<span class="info-title-power-group"><em class="info-title-power"></em></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="info-title-icon-container">
+                        <span class="info-title-icon"><i class="icon-refresh need-tooltip icon-spin" id="iconLive" data-toggle="tooltip" data-original-title="实时更新已启用"></i></span>
+                    </div>
+                    <div class="info-title-icon-container">
+                        <span class="info-title-icon"><i class="icon-bell need-tooltip" id="iconNotice" data-toggle="tooltip" data-original-title="桌面通知已禁用"></i></span>
+                    </div>
+                    <div class="info-title-text"></div>
+                </div>
+                <div class="info-box">
+                    <div class="info-list-time"><i class="icon-calendar"></i> <span>{{now|date:'Y-m-d'}}</span></div>
+                    {% for i in infos %}
+                    <div class="info-list {% if i.is_breaking_news %}info-list-warning{%endif%} " data-handle="{{i.id}}" >
+                        <div class="info-list-head {% if i.is_breaking_news %}need-tooltip{%endif%}" {% if i.is_breaking_news %}data-toggle="tooltip" data-original-title="重要资讯"{%endif%} >
+                            {{i.add_time|date:'Y-m-d H:i'|hour}}:{{i.add_time|date:'Y-m-d H:i'|minute}}
+                        </div>
+                        <div class="info-list-text">
+                            <span class="label pull-right {% if i.bullish_or_bearish == 1 %}info-type-more{% elif i.bullish_or_bearish == 2%}info-type-less{% else %}info-type-null{%endif%} "></span>
+                            {{i.title}}
+                        </div>
+                    </div>
+                    {% if i.comment %}
+                        <div class="info-list info-list-reply" >
+                            <div class="info-list-head">
+                                评论师
+                            </div>
+                            <div class="info-list-text">
+                                {{ i.comment }}
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
