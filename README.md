@@ -8,12 +8,7 @@ Django+NodeJS+Redis实现实时消息推送
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是一个Django为主，Socket.IO为辅的技术入门文章，通过开发一个实时的资讯推送平台，本系列文章从前段到后端，从数据库到服务器，甚至到爬虫的编写和nginx的配置我们都将“事必躬亲”。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因本人实力有限，很多技术都是现学现卖，故代码可能存在很多不足，还请多多指教！
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;要是在阅读中遇到问题，可以提交问题到Github上，或者发邮件到:timest.lyy#gmail[.]com
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“我不是一个内向的程序员，只是我很忙！”好了，废话少说，我们开始吧！
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;要是在阅读中遇到问题，可以提交问题到issue上！
 
 ### 二、技术列表
 
